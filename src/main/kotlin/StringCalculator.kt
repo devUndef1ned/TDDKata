@@ -10,11 +10,13 @@ class StringCalculator {
         if (!string.contains(separatorChar)) {
             return string.toInt()
         } else {
-            var separatorIndex = string.indexOf(separatorChar)
-            var first = string.substring(0, separatorIndex).toInt()
-            var second = string.substring(separatorIndex + 1).toInt()
+            var numbers = string.split(separatorChar)
+            var sum = 0
+            for (number in numbers) {
+                sum += number.toInt()
+            }
 
-            return first + second
+            return sum
         }
     }
 }

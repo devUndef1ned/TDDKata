@@ -39,7 +39,7 @@ class StringCalculatorTests {
     fun whenAdd_TwoNumbers_shouldReturnTheirSum() {
         var first = getRandomInt()
         var second = getRandomInt()
-        var arg = getStringFromTwoNumbers(first, second)
+        var arg = getStringFromNumbers(first, second)
 
         Assert.assertEquals(first + second, calculator.add(arg))
     }
@@ -51,8 +51,30 @@ class StringCalculatorTests {
         calculator.add(arg)
     }
 
+    @Test
+    fun whenAdd_severalNumbers_shouldReturnTheirSum() {
+        var first = getRandomInt()
+        var second = getRandomInt()
+        var third = getRandomInt()
+        var fourth = getRandomInt()
+        var args = getStringFromNumbers(first, second, third, fourth)
+
+        Assert.assertEquals(first + second + third + fourth, calculator.add(args))
+    }
+
     private fun getRandomInt() = random.nextInt(10000000)
 
-    private fun getStringFromTwoNumbers(first: Int, second: Int) = StringBuilder().append(first).append(",").append(second).toString()
+    private fun getStringFromNumbers(vararg args: Int): String {
+        var builder = StringBuilder()
+
+        var iterator = args.iterator()
+        builder.append(iterator.nextInt())
+
+        while(iterator.hasNext()) {
+            builder.append(",").append(iterator.nextInt())
+        }
+
+        return builder.toString()
+    }
 
 }
