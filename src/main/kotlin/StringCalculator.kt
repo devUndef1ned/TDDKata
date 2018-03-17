@@ -1,22 +1,19 @@
 class StringCalculator {
 
-    val separatorChar = ','
+    val separatorRegex = ","
+
 
     fun add(string: String): Int {
         if (string.isEmpty()) {
             return 0
         }
 
-        if (!string.contains(separatorChar)) {
-            return string.toInt()
-        } else {
-            var numbers = string.split(separatorChar)
-            var sum = 0
-            for (number in numbers) {
-                sum += number.toInt()
-            }
-
-            return sum
+        var numbers = string.split(separatorRegex)
+        var sum = 0
+        for (number in numbers) {
+            sum += number.toInt()
         }
+
+        return sum
     }
 }
