@@ -1,6 +1,7 @@
 class StringCalculator {
 
-    val separatorRegex = ","
+    val firstSeparator = ","
+    val secondSeparator = "\n"
 
 
     fun add(string: String): Int {
@@ -8,7 +9,7 @@ class StringCalculator {
             return 0
         }
 
-        var numbers = string.split(separatorRegex)
+        var numbers = string.split(firstSeparator, secondSeparator)
         var sum = 0
         for (number in numbers) {
             sum += number.toInt()

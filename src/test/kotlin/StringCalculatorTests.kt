@@ -65,13 +65,22 @@ class StringCalculatorTests {
     private fun getRandomInt() = random.nextInt(10000000)
 
     private fun getStringFromNumbers(vararg args: Int): String {
+        val evenSep = ","
+        val oddSep = "\n"
         var builder = StringBuilder()
 
         var iterator = args.iterator()
         builder.append(iterator.nextInt())
 
         while(iterator.hasNext()) {
-            builder.append(",").append(iterator.nextInt())
+            val separatorIndx = getRandomInt()
+            if (separatorIndx % 2 == 0) {
+                builder.append(evenSep)
+            } else {
+                builder.append(oddSep)
+            }
+
+           builder.append(iterator.nextInt())
         }
 
         return builder.toString()
