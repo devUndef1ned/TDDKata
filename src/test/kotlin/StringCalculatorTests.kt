@@ -29,7 +29,7 @@ class StringCalculatorTests {
     }
 
     @Test(expected = IllegalArgumentException::class)
-    fun whenAdd_stringThatCanNotBeCastedToString_shouldFail() {
+    fun whenAdd_stringThatCanNotBeCastedToNumber_shouldFail() {
         var arg = "!#@"
 
         calculator.add(arg)
@@ -42,6 +42,13 @@ class StringCalculatorTests {
         var arg = getStringFromTwoNumbers(first, second)
 
         Assert.assertEquals(first + second, calculator.add(arg))
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun whenAdd_singleNumberAndSomethingThatCanNotBeCastedToNumber_shouldFail() {
+        var arg = "5,&*@3"
+
+        calculator.add(arg)
     }
 
     private fun getRandomInt() = random.nextInt(10000000)
