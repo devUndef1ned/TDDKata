@@ -1,6 +1,7 @@
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import java.util.*
 
 class StringCalculatorTests {
 
@@ -16,5 +17,13 @@ class StringCalculatorTests {
         var arg = ""
 
         Assert.assertEquals(0, calculator.add(arg))
+    }
+
+    @Test
+    fun whenAdd_singleNumber_shouldReturnTheSameValue() {
+        var number = Random().nextInt()
+        var arg = number.toString()
+
+        Assert.assertEquals(number, calculator.add(arg))
     }
 }
