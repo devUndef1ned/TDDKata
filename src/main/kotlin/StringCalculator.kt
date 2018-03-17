@@ -1,6 +1,10 @@
 class StringCalculator {
 
     fun add(string: String): Int {
-        return 0
+        if (string.isEmpty()) {
+            return 0
+        }
+
+        return 1
     }
 }
