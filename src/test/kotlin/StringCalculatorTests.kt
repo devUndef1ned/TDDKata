@@ -26,4 +26,11 @@ class StringCalculatorTests {
 
         Assert.assertEquals(number, calculator.add(arg))
     }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun whenAdd_stringThatCanNotBeCastedToString_shouldFail() {
+        var arg = "!#@"
+
+        calculator.add(arg)
+    }
 }
